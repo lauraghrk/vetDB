@@ -1,57 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>vetDB</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
+    <h1>Vet DB</h1>
 
-    <h2>Register New Pet</h2>
-    <form action="register" method="post">
-      <h3>Pet information:</h3>
-      <div>
-        <label for="petName">Pet name:</label>
-        <input type="text" name="petName">
-      </div>
-      <div>
-        <label for="species">Species:</label>
-        <input type="text" name="species">
-      </div>
-      <div>
-        <label for="breed">Breed:</label>
-        <input type="text" name="breed">
-      </div>
-      <div>
-        <label for="color">Color:</label>
-        <input type="text" name="color">
-      </div>
-      <div>
-        <label for="birth">Birth date:</label>
-        <input type="date" name="birth">
-      </div>
+    <a href="/register">Register New Pet</a>
 
-      <h3>Owner information:</h3>
-      <div>
-        <label for="ownerName">Owner name:</label>
-        <input type="text" name="ownerName">
-      </div>
-      <div>
-        <label for="phone">Phone number:</label>
-        <input type="tel" name="phone">
-      </div>
-      <div>
-        <label for="email">Email:</label>
-        <input type="email" name="email">
-      </div>
-      <div>
-        <label for="address">Address:</label>
-        <input type="text" name="address">
-      </div>
-      <div>
-        <button type="submit">Register</button>
-      </div>
-    </form>
+    <h2>All registers</h2>
+    <ul>
+      <% for (let i=0; i<list.length; i++) { %>
+      <li>
+        <%= list[i].petName %>
+      </li>
+      <% } %>
+    </ul>
+    
+    <table>
+      <tr>
+        <th>Pet name</th>
+        <th>Owner name</th>
+      </tr>
+    </table>
 
   </body>
 </html>

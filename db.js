@@ -18,6 +18,12 @@ async function register(pet) {
     return db.collection('pets').insertOne(pet)
 }
 
+async function listAll() {
+    const db = await connect()
+    return db.collection('pets').find().toArray()
+}
+
 module.exports = {
-    register
+    register,
+    listAll
 }
