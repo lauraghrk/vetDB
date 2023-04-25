@@ -10,19 +10,31 @@
     <a href="/register">Register New Pet</a>
 
     <h2>All registers</h2>
-    <ul>
-      <% for (let i=0; i<list.length; i++) { %>
-      <li>
-        <%= list[i].petName %>
-      </li>
-      <% } %>
-    </ul>
-    
     <table>
       <tr>
         <th>Pet name</th>
+        <th>Species</th>
+        <th>Breed</th>
+        <th>Color</th>
+        <th>Birth date</th>
         <th>Owner name</th>
+        <th>Phone number</th>
+        <th>Email</th>
+        <th>Address</th>
       </tr>
+      <% list.forEach(pet => { %>
+        <tr>
+          <td><%= pet.petName %></td>
+          <td><%= pet.species %></td>
+          <td><%= pet.breed %></td>
+          <td><%= pet.color %></td>
+          <td><%= pet.birth %></td>
+          <td><%= pet.ownerName %></td>
+          <td><%= pet.phone %></td>
+          <td><%= pet.email %></td>
+          <td><%= pet.address %></td>
+        </tr>
+      <% }); %>
     </table>
 
   </body>
