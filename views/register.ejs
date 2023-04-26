@@ -12,7 +12,7 @@
       <h3>Pet information:</h3>
       <div>
         <label for="petName">Pet name:</label>
-        <input type="text" name="petName">
+        <input type="text" name="petName" maxlength="20">
       </div>
       <div>
         <label for="species">Species:</label>
@@ -28,17 +28,17 @@
       </div>
       <div>
         <label for="birth">Birth date:</label>
-        <input type="date" name="birth">
+        <input type="date" name="birth" placeholder="dd-mm-yyyy">
       </div>
 
       <h3>Owner information:</h3>
       <div>
         <label for="ownerName">Owner name:</label>
-        <input type="text" name="ownerName">
+        <input type="text" name="ownerName" maxlength="30">
       </div>
       <div>
         <label for="phone">Phone number:</label>
-        <input type="tel" name="phone">
+        <input type="tel" name="phone" placeholder="(00) 00000-0000">
       </div>
       <div>
         <label for="email">Email:</label>
@@ -52,6 +52,5 @@
         <button type="submit">Register</button>
       </div>
     </form>
-
   </body>
 </html>

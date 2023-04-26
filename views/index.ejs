@@ -28,7 +28,7 @@
           <td><%= pet.species %></td>
           <td><%= pet.breed %></td>
           <td><%= pet.color %></td>
-          <td><%= pet.birth %></td>
+          <td><%= pet.birth.split('-').reverse().join('/') %></td>
           <td><%= pet.ownerName %></td>
           <td><%= pet.phone %></td>
           <td><%= pet.email %></td>
