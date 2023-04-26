@@ -6,7 +6,7 @@
   </head>
   <body>
     <h1>Vet DB</h1>
-    
+
     <h2>Register New Pet</h2>
     <form action="register" method="post">
       <h3>Pet information:</h3>
@@ -38,7 +38,7 @@
       </div>
       <div>
         <label for="phone">Phone number:</label>
-        <input type="tel" name="phone" placeholder="(00) 00000-0000">
+        <input type="tel" name="phone" id="phone" placeholder="(00) 00000-0000">
       </div>
       <div>
         <label for="email">Email:</label>
@@ -52,5 +52,32 @@
         <button type="submit">Register</button>
       </div>
     </form>
+
+    <script>
+      //código retirado do vídeo "Campos de Telefone com Máscara no WordPress sem usar Plugins" do canal DANTE TESTA
+      function mask(o, f) {
+        v_obj = o
+        v_fun = f
+        setTimeout("execmask()", 1)
+      }
+      function execmask() {
+        v_obj.value = v_fun(v_obj.value)
+      }
+      function masktel(v) {
+        v = v.replace(/\D/g, "");
+        v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
+        v = v.replace(/(\d)(\d{4})$/, "$1-$2");
+        return v;
+      }
+      function idcss(el) {
+        return document.getElementById(el);
+      }
+      window.onload = function () {
+        idcss('phone').setAttribute('maxlength', 15)
+        idcss('phone').onkeypress = function () {
+          mask(this, masktel)
+        }
+      }
+    </script>
   </body>
 </html>
