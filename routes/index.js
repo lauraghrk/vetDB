@@ -12,7 +12,7 @@ router.post("/register", async (req, res) => {
   const pet = req.body
   const result = await db.register(pet)
   console.log(result)
-  res.send("Successful new register!")
+  res.redirect('..')
 })
 
 module.exports = router;
