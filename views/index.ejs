@@ -17,6 +17,7 @@
       <table class="table table-striped table-hover">
         <thead>
           <tr>
+            <th></th>
             <th>Pet name</th>
             <th>Species</th>
             <th>Breed</th>
@@ -31,6 +32,7 @@
         <tbody class="table-group-divider">
           <% list.forEach(pet => { %>
             <tr>
+              <td><a href="/<%= pet._id %>">Edit/Delete</a></td>
               <td><%= pet.petName %></td>
               <td><%= pet.species %></td>
               <td><%= pet.breed %></td>
@@ -40,7 +42,6 @@
               <td><%= pet.phone %></td>
               <td><%= pet.email %></td>
               <td><%= pet.address %></td>
-              <td><a href="<% pet._id %>">Edit/Delete</a></td>
             </tr>
           <% }); %>
         </tbody>
