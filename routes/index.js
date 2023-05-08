@@ -40,4 +40,10 @@ router.post('/delete/:_id', async (req, res) => {
   res.redirect('/')
 })
 
+router.get('/edit/:_id', async (req, res) => {
+  const id = req.params._id
+  res.render('edit', {id})
+  
+})
+
 module.exports = router;
