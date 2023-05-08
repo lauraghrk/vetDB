@@ -2,9 +2,11 @@ var express = require('express');
 var router = express.Router();
 const db = require('../db')
 
-async function selectId(id) {
+async function selectById(id) {
   const list = await db.listAll()
-  return list.filter( pet => pet._id == id)
+  const pet = list.filter(pet => pet._id == id)
+  const petData = pet[0]
+  return petData
 }
 
 /* GET home page. */
@@ -14,8 +16,8 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/:_id', async (req, res) => {
-  const json = selectId(req.params.id)
-  res.render('pet')
+  const pet = await selectById(req.params._id)
+  res.render('pet', { pet })
 })
 
 router.get('/register', async (req, res, next) => {
@@ -28,5 +30,12 @@ router.post('/register', async (req, res) => {
   console.log(result)
   res.redirect('..')
 })
+
+/*router.delete('/delete/:_id', async (req, res) => {
+  const id = req.params._id
+  const result = await db.remove(id)
+  console.log(result)
+  res.redirect('..')
+})*/
 
 module.exports = router;
