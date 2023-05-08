@@ -27,13 +27,13 @@ router.post('/register', async (req, res) => {
   res.redirect('..')
 })
 
-//Pet page (edit/delete):
+//Pet page (update/delete):
 router.get('/:_id', async (req, res) => {
   const pet = await selectById(req.params._id)
   res.render('pet', { pet })
 })
 
-router.post('/:_id', async (req, res) => {
+router.post('/delete/:_id', async (req, res) => {
   const id = req.params._id
   const result = await db.remove(id)
   console.log(result)
