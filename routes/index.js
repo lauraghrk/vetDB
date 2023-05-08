@@ -9,17 +9,13 @@ async function selectById(id) {
   return petData
 }
 
-/* GET home page. */
+// GET home page:
 router.get('/', async (req, res, next) => {
   const list = await db.listAll()
   res.render('index', { list });
 });
 
-router.get('/:_id', async (req, res) => {
-  const pet = await selectById(req.params._id)
-  res.render('pet', { pet })
-})
-
+//New register page:
 router.get('/register', async (req, res, next) => {
   res.render('register');
 });
@@ -31,11 +27,17 @@ router.post('/register', async (req, res) => {
   res.redirect('..')
 })
 
-/*router.delete('/delete/:_id', async (req, res) => {
+//Pet page (edit/delete):
+router.get('/:_id', async (req, res) => {
+  const pet = await selectById(req.params._id)
+  res.render('pet', { pet })
+})
+
+router.post('/:_id', async (req, res) => {
   const id = req.params._id
   const result = await db.remove(id)
   console.log(result)
-  res.redirect('..')
-})*/
+  res.redirect('/')
+})
 
 module.exports = router;

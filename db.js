@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-const { MongoClient } = require('mongodb')
+const { MongoClient, ObjectId } = require('mongodb')
 let singleton
 
 async function connect() {
@@ -23,7 +23,13 @@ async function listAll() {
     return db.collection('pets').find().toArray()
 }
 
+async function remove(id) {
+    const db = await connect()
+    return db.collection('pets').deleteOne({_id: new ObjectId(id)})
+}
+
 module.exports = {
     register,
-    listAll
+    listAll,
+    remove
 }

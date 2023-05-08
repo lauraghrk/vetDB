@@ -9,8 +9,21 @@
   </head>
   <body>
     <h1 class="text-center mb-5">Vet DB</h1>
-    <h2>Pet page</h2>
-    <p><%= pet._id %></p>
+    <h2>Pet's information</h2>
+    <p><%= pet.petName %></p>
+    <p><%= pet.species %></p>
+    <p><%= pet.breed %></p>
+    <p><%= pet.color %></p>
+    <p><%= pet.birth.split('-').reverse().join('/') %></p>
+    <p><%= pet.ownerName %></p>
+    <p><%= pet.phone %></p>
+    <p><%= pet.email %></p>
+    <p><%= pet.address %></p>
 
+    <form action="/<%= pet._id %>" method="post">
+      <button type="submit" class="btn btn-danger btn-lg mt-5 mb-5">Delete register</button>
+    </form>
+
+    <a href="/" class="btn btn-secondary btn-lg mt-5 mb-5">Cancel</a>
   </body>
 </html>
